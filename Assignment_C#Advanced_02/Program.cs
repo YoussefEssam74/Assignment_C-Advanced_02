@@ -265,11 +265,12 @@ namespace Assignment_C_Advanced_02
 
             #endregion
             #region Q9 Intersection
-           // int[] nums1 = { 1, 2, 3, 4, 4 };
-           // int[] nums2 = { 10, 4, 4 };
-           // List<int> intersection = FindIntersection(nums1, nums2);
-           // Console.WriteLine("Intersection: [" + string.Join(", ", intersection) + "]");
+            // int[] nums1 = { 1, 2, 3, 4, 4 };
+            // int[] nums2 = { 10, 4, 4 };
+            // List<int> intersection = FindIntersection(nums1, nums2);
+            // Console.WriteLine("Intersection: [" + string.Join(", ", intersection) + "]");
             #endregion
+            // q10 & q11 h7awl fehom
 
         }
     }
