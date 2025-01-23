@@ -107,6 +107,38 @@ namespace Assignment_C_Advanced_02
                 Console.WriteLine(item + " Type: " + item.GetType());
             }
         }
+        static void SearchTargetInStack(Stack<int> stack, int target)
+        {
+            int count = 0; 
+            bool isFound = false; 
+            while (stack.Count > 0)
+            {
+                int current = stack.Pop(); 
+                count++;
+
+                if (current == target)
+                {
+                    isFound = true;
+                    break; 
+                }
+            }
+
+            if (isFound)
+            {
+                Console.WriteLine($"Target was found successfully and the count = {count}");
+            }
+            else
+            {
+                Console.WriteLine("Target was not found");
+            }
+        }
+        static void PushSeriesOntoStack(Stack<int> stack, int[] numbers)
+        {
+            foreach (int number in numbers)
+            {
+                stack.Push(number);
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -178,15 +210,15 @@ namespace Assignment_C_Advanced_02
             // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
             #endregion
             #region Q5  Removing Duplicates
-          // int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
-          // 
-          //   Console.WriteLine("Original Array ");
-          //   PrintCollection(array);
-          // 
-          //   int[] uniqueArray = RemoveDuplicates(array);
-          // 
-          //   Console.WriteLine("Array after removing duplicates ");
-          //   PrintCollection(uniqueArray);
+            // int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
+            // 
+            //   Console.WriteLine("Original Array ");
+            //   PrintCollection(array);
+            // 
+            //   int[] uniqueArray = RemoveDuplicates(array);
+            // 
+            //   Console.WriteLine("Array after removing duplicates ");
+            //   PrintCollection(uniqueArray);
             #endregion
             #region Q6 Remove Odd Numbers
             // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -198,14 +230,28 @@ namespace Assignment_C_Advanced_02
             // PrintCollection(numbers);
             #endregion
             #region Q7 Mixed Queue
-           //Queue mixedQueue = new Queue();
-           //mixedQueue.Enqueue(1);         
-           //mixedQueue.Enqueue("Apple");   
-           //mixedQueue.Enqueue(5.28);      
-           //Console.WriteLine("Mixed Queue Contents:");
-           //PrintQueue(mixedQueue);
+            //Queue mixedQueue = new Queue();
+            //mixedQueue.Enqueue(1);         
+            //mixedQueue.Enqueue("Apple");   
+            //mixedQueue.Enqueue(5.28);      
+            //Console.WriteLine("Mixed Queue Contents:");
+            //PrintQueue(mixedQueue);
+            #endregion
+            #region Q8 SearchTargetInStack
+           //Stack<int> stack = new Stack<int>();
+           //PushSeriesOntoStack(stack, new int[] { 10, 20, 30, 40, 50, 60, 70 });
+           //Console.Write("Enter the target integer to search for: ");
+           //int target = int.Parse(Console.ReadLine());
+           //SearchTargetInStack(stack, target);
+
             #endregion
 
         }
     }
 }
+
+
+
+
+
+
