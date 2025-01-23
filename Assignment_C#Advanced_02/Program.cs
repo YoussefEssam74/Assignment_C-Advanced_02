@@ -35,6 +35,42 @@
             }
             Console.WriteLine();
         }
+        static bool IsMatchingPair(char opening, char closing)
+        {
+            return (opening == '(' && closing == ')') ||
+                   (opening == '{' && closing == '}') ||
+                   (opening == '[' && closing == ']');
+        }
+        static bool IsBalanced(string input)
+        {
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char ch in input)
+            {
+                if (ch == '(' || ch == '{' || ch == '[')
+                {
+                    stack.Push(ch);
+                }
+                else if (ch == ')' || ch == '}' || ch == ']')
+                {
+                    if (stack.Count == 0)
+                    {
+                        return false;
+                    }
+
+                    char top = stack.Pop();
+
+                    if (!IsMatchingPair(top, ch))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.Count == 0;
+        }
+
+
         static void Main(string[] args)
         {
             #region Q1 How many numbers in array that is greater than  X ?
@@ -83,17 +119,26 @@
             //}
             #endregion
             #region Q3 Reversed Queue
-           // Queue<int> queue = new Queue<int>();
-           // queue.Enqueue(1);
-           // queue.Enqueue(2);
-           // queue.Enqueue(3);
-           // queue.Enqueue(4);
-           // queue.Enqueue(5);
-           // Console.WriteLine("Original Queue");
-           // PrintQueue(queue);
-           // ReverseQueue(queue);
-           // Console.WriteLine("Reversed Queue");
-           // PrintQueue(queue);
+            // Queue<int> queue = new Queue<int>();
+            // queue.Enqueue(1);
+            // queue.Enqueue(2);
+            // queue.Enqueue(3);
+            // queue.Enqueue(4);
+            // queue.Enqueue(5);
+            // Console.WriteLine("Original Queue");
+            // PrintQueue(queue);
+            // ReverseQueue(queue);
+            // Console.WriteLine("Reversed Queue");
+            // PrintQueue(queue);
+            #endregion
+            #region Q4 parentheses is balanced ?
+           // string input1 = "[()]{}";
+           // string input2 = "[(])";
+           // string input3 = "({[]})";
+           //
+           // Console.WriteLine($"Is {input1} balanced? {IsBalanced(input1)}");
+           // Console.WriteLine($"Is {input2} balanced? {IsBalanced(input2)}");
+           // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
             #endregion
         }
     }
@@ -107,8 +152,6 @@
 
 
 
-
-  
 
 
 
