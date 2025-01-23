@@ -1,4 +1,6 @@
-﻿namespace Assignment_C_Advanced_02
+﻿using System.Collections;
+
+namespace Assignment_C_Advanced_02
 {
     internal class Program
     {
@@ -98,7 +100,13 @@
             }
         }
 
-
+        static void PrintQueue(Queue queue)
+        {
+            foreach (object item in queue)
+            {
+                Console.WriteLine(item + " Type: " + item.GetType());
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -170,15 +178,15 @@
             // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
             #endregion
             #region Q5  Removing Duplicates
-            int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
-            
-              Console.WriteLine("Original Array ");
-              PrintCollection(array);
-            
-              int[] uniqueArray = RemoveDuplicates(array);
-            
-              Console.WriteLine("Array after removing duplicates ");
-              PrintCollection(uniqueArray);
+          // int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
+          // 
+          //   Console.WriteLine("Original Array ");
+          //   PrintCollection(array);
+          // 
+          //   int[] uniqueArray = RemoveDuplicates(array);
+          // 
+          //   Console.WriteLine("Array after removing duplicates ");
+          //   PrintCollection(uniqueArray);
             #endregion
             #region Q6 Remove Odd Numbers
             // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -188,6 +196,14 @@
             // RemoveOddNumbers(numbers);
             // Console.WriteLine("List after removing odd numbers");
             // PrintCollection(numbers);
+            #endregion
+            #region Q7 Mixed Queue
+           //Queue mixedQueue = new Queue();
+           //mixedQueue.Enqueue(1);         
+           //mixedQueue.Enqueue("Apple");   
+           //mixedQueue.Enqueue(5.28);      
+           //Console.WriteLine("Mixed Queue Contents:");
+           //PrintQueue(mixedQueue);
             #endregion
 
         }
