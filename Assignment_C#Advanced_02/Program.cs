@@ -27,14 +27,14 @@
                 queue.Enqueue(stack.Pop());
             }
         }
-        static void PrintQueue(Queue<int> queue)
-        {
-            foreach (int item in queue)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
-        }
+        //static void PrintQueue(Queue<int> queue)
+        //{
+        //    foreach (int item in queue)
+        //    {
+        //        Console.Write(item + " ");
+        //    }
+        //    Console.WriteLine();
+        //}
         static bool IsMatchingPair(char opening, char closing)
         {
             return (opening == '(' && closing == ')') ||
@@ -79,13 +79,23 @@
             }
             return uniqueSet.ToArray();
         }
-        static void PrintArray(int[] array)
+        static void PrintCollection<T>(IEnumerable<T> collection, string separator = " ")
         {
-            foreach (int item in array)
+            foreach (T item in collection)
             {
-                Console.Write(item + " ");
+                Console.Write(item + separator);
             }
             Console.WriteLine();
+        }
+        static void RemoveOddNumbers(List<int> numbers)
+        {
+            for (int i = numbers.Count - 1; i >= 0; i--)
+            {
+                if (numbers[i] % 2 != 0)
+                {
+                    numbers.RemoveAt(i);
+                }
+            }
         }
 
 
@@ -145,10 +155,10 @@
             // queue.Enqueue(4);
             // queue.Enqueue(5);
             // Console.WriteLine("Original Queue");
-            // PrintQueue(queue);
+            // PrintCollection(queue);
             // ReverseQueue(queue);
             // Console.WriteLine("Reversed Queue");
-            // PrintQueue(queue);
+            // PrintCollection(queue);
             #endregion
             #region Q4 parentheses is balanced ?
             // string input1 = "[()]{}";
@@ -160,35 +170,26 @@
             // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
             #endregion
             #region Q5  Removing Duplicates
-          //  int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
-          //
-          //  Console.WriteLine("Original Array ");
-          //  PrintArray(array);
-          //
-          //  int[] uniqueArray = RemoveDuplicates(array);
-          //
-          //  Console.WriteLine("Array after removing duplicates ");
-          //  PrintArray(uniqueArray);
+            int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
+            
+              Console.WriteLine("Original Array ");
+              PrintCollection(array);
+            
+              int[] uniqueArray = RemoveDuplicates(array);
+            
+              Console.WriteLine("Array after removing duplicates ");
+              PrintCollection(uniqueArray);
             #endregion
+            #region Q6 Remove Odd Numbers
+            // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //
+            // Console.WriteLine("Original List");
+            // PrintCollection(numbers);
+            // RemoveOddNumbers(numbers);
+            // Console.WriteLine("List after removing odd numbers");
+            // PrintCollection(numbers);
+            #endregion
+
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
