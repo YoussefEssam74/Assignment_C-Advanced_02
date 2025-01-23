@@ -69,6 +69,25 @@
 
             return stack.Count == 0;
         }
+        static int[] RemoveDuplicates(int[] array)
+        {
+            HashSet<int> uniqueSet = new HashSet<int>();
+
+            foreach (int item in array)
+            {
+                uniqueSet.Add(item);
+            }
+            return uniqueSet.ToArray();
+        }
+        static void PrintArray(int[] array)
+        {
+            foreach (int item in array)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+
 
 
         static void Main(string[] args)
@@ -132,17 +151,32 @@
             // PrintQueue(queue);
             #endregion
             #region Q4 parentheses is balanced ?
-           // string input1 = "[()]{}";
-           // string input2 = "[(])";
-           // string input3 = "({[]})";
-           //
-           // Console.WriteLine($"Is {input1} balanced? {IsBalanced(input1)}");
-           // Console.WriteLine($"Is {input2} balanced? {IsBalanced(input2)}");
-           // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
+            // string input1 = "[()]{}";
+            // string input2 = "[(])";
+            // string input3 = "({[]})";
+            //
+            // Console.WriteLine($"Is {input1} balanced? {IsBalanced(input1)}");
+            // Console.WriteLine($"Is {input2} balanced? {IsBalanced(input2)}");
+            // Console.WriteLine($"Is {input3} balanced? {IsBalanced(input3)}");
+            #endregion
+            #region Q5  Removing Duplicates
+          //  int[] array = { 1, 2, 3, 4, 2, 3, 5, 1, 3 };
+          //
+          //  Console.WriteLine("Original Array ");
+          //  PrintArray(array);
+          //
+          //  int[] uniqueArray = RemoveDuplicates(array);
+          //
+          //  Console.WriteLine("Array after removing duplicates ");
+          //  PrintArray(uniqueArray);
             #endregion
         }
     }
 }
+
+
+
+
 
 
 
