@@ -139,6 +139,25 @@ namespace Assignment_C_Advanced_02
                 stack.Push(number);
             }
         }
+        static List<int> FindIntersection(int[] nums1, int[] nums2)
+        {
+            List<int> result = new List<int>();
+            bool[] used = new bool[nums2.Length];
+            foreach (int num in nums1)
+            {
+                for (int i = 0; i < nums2.Length; i++)
+                {
+                    if (nums2[i] == num && !used[i])
+                    {
+                        result.Add(num);
+                        used[i] = true;
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
 
         static void Main(string[] args)
         {
@@ -238,18 +257,23 @@ namespace Assignment_C_Advanced_02
             //PrintQueue(mixedQueue);
             #endregion
             #region Q8 SearchTargetInStack
-           //Stack<int> stack = new Stack<int>();
-           //PushSeriesOntoStack(stack, new int[] { 10, 20, 30, 40, 50, 60, 70 });
-           //Console.Write("Enter the target integer to search for: ");
-           //int target = int.Parse(Console.ReadLine());
-           //SearchTargetInStack(stack, target);
+            //Stack<int> stack = new Stack<int>();
+            //PushSeriesOntoStack(stack, new int[] { 10, 20, 30, 40, 50, 60, 70 });
+            //Console.Write("Enter the target integer to search for: ");
+            //int target = int.Parse(Console.ReadLine());
+            //SearchTargetInStack(stack, target);
 
+            #endregion
+            #region Q9 Intersection
+           // int[] nums1 = { 1, 2, 3, 4, 4 };
+           // int[] nums2 = { 10, 4, 4 };
+           // List<int> intersection = FindIntersection(nums1, nums2);
+           // Console.WriteLine("Intersection: [" + string.Join(", ", intersection) + "]");
             #endregion
 
         }
     }
 }
-
 
 
 
