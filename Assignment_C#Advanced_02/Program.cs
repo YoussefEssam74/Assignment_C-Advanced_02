@@ -158,7 +158,54 @@ namespace Assignment_C_Advanced_02
 
             return result;
         }
+        static ArrayList FindSubList(ArrayList arrList, int targetSum)
+        {
+            for (int start = 0; start < arrList.Count; start++)
+            {
+                int sum = 0;
+                ArrayList subList = new ArrayList();
 
+                for (int end = start; end < arrList.Count; end++)
+                {
+                    sum += (int)arrList[end];
+                    subList.Add(arrList[end]);
+
+                    if (sum == targetSum)
+                    {
+                        return subList; // Found the sublist
+                    }
+                    if (sum > targetSum)
+                    {
+                        break; // Stop if sum exceeds target
+                    }
+                }
+            }
+            return new ArrayList(); // Return empty list if no sublist found
+        }
+        static Queue<int> ReverseFirstKElements(Queue<int> queue, int k)
+        {
+            if (k <= 0 || k > queue.Count) return queue; // Edge case check
+
+            Stack<int> stack = new Stack<int>();
+
+            for (int i = 0; i < k; i++)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+            while (stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+
+            // Move remaining elements to the back 
+            for (int i = 0; i < queue.Count - k; i++)
+            {
+                queue.Enqueue(queue.Dequeue());
+            }
+
+            return queue;
+        }
         static void Main(string[] args)
         {
             #region Q1 How many numbers in array that is greater than  X ?
@@ -270,7 +317,24 @@ namespace Assignment_C_Advanced_02
             // List<int> intersection = FindIntersection(nums1, nums2);
             // Console.WriteLine("Intersection: [" + string.Join(", ", intersection) + "]");
             #endregion
-            // q10 & q11 h7awl fehom
+            #region Q10 FindSubList
+            // ArrayList arrList = new ArrayList { 1, 2, 3, 7, 5 };
+            // int targetSum = 12;
+            //
+            // ArrayList subList = FindSubList(arrList, targetSum);
+            //
+            // Console.WriteLine(subList.Count > 0 ? $"[{string.Join(", ", subList.ToArray())}]" : "No sublist found");
+
+
+            #endregion
+            #region Q11 ReverseFirstKElements
+           //Queue<int> queue = new Queue<int>(new int[] { 1, 2, 3, 4, 5 });
+           //int k = 3;
+           //
+           //Queue<int> result = ReverseFirstKElements(queue, k);
+           //
+           //Console.WriteLine($"[{string.Join(", ", result)}]");
+            #endregion
 
         }
     }
